@@ -1,16 +1,19 @@
 #include <iostream>
+#include <stdlib.h>
 using namespace std;
 
 //making the budget
 int budget = rand() % 5000 + 3000;
 
+
 //RGG loop
 void RandomGambleGame(){
 
-    //game set up
+//game set up
+cout << "---------------------------\n";
 int WagerAmount;
     cout << "Welcome to the random gamble game! \n";
-    cout << "how much will you wager? \n";
+    cout << "how much will you wager?(decimals will break the game) \n";
     cin >> WagerAmount;
 
     //checking the money amount
@@ -22,7 +25,7 @@ int WagerAmount;
         RandomGambleGame();
     } else {
         //the game
-        int rggNum = rand() % 50 + 0;
+        int rggNum = rand() % 10 + 0;
         int rggNumGuess;
         cout << "whats your guess for the number? \n";
         cin >> rggNumGuess;
@@ -45,7 +48,6 @@ int WagerAmount;
 }
 
 void Menu() {
-
     //game set up
     bool game = true;
     while (game = true){
@@ -57,6 +59,7 @@ void Menu() {
         cout << "what would you like to do? \n";
         cout << "---------------------------\n";
         cout << "0 = random gamble game \n";
+        cout << "1 = exit (note: progress does NOT save yet!) \n";
         cout << "---------------------------\n";
         cin >> GameChoice;
 
@@ -65,6 +68,8 @@ void Menu() {
 
             RandomGambleGame();
 
+        } else if (GameChoice == '1') {
+            return;
         }
     }
 
@@ -74,5 +79,6 @@ void Menu() {
 
 
 int main() {
- Menu();
+    cout << "---------------------------\n";
+    Menu();
 }
